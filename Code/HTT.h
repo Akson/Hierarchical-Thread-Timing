@@ -7,7 +7,7 @@
 namespace HTT
 {
 
-////////////////////////////HANDICAPS//////////////////////////////////////////////
+////////////////////////////COMPATIBILITY HANDICAPS//////////////////////////////////////////////
 //Maybe one day it will be implemented in a right way...
 #define thread_local __declspec(thread)
 #define USE_WINDOWS_QueryPerformanceCounter_TIMER
@@ -35,7 +35,7 @@ struct WindowsHighResClock
 #else
 #define SYSTEM_HIGH_RES_TIMER std::chrono::high_resolution_clock
 #endif
-////////////////////////////HANDICAPS//////////////////////////////////////////////
+////////////////////////////COMPATIBILITY HANDICAPS//////////////////////////////////////////////
 
 class ThreadTimer
 {
@@ -67,8 +67,6 @@ public:
 private:
     SYSTEM_HIGH_RES_TIMER::time_point m_StartTime;
     std::vector<std::pair<double, std::string>> m_TicksList;
-public:
-    double sum;
 };
 
 struct TimingBlock
