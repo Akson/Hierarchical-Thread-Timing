@@ -1,5 +1,4 @@
 #include "HTT.h"
-#include <iostream>
 #include <utility>
 using namespace HTT;
 
@@ -33,8 +32,7 @@ void HTT::ThreadTimer::EndBlock()
     Tick("_BLOCK_END_");
 }
 
-void HTT::ThreadTimer::Flush(std::ostream &ss)
+std::vector<std::pair<double, std::string>>& HTT::ThreadTimer::GetTicksList()
 {
-    for(auto& tick : m_TicksList)
-        ss << tick.first << " " << tick.second << std::endl;
+    return m_TicksList;
 }

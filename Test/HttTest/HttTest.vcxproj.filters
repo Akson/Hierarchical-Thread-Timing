@@ -15,5 +15,8 @@
     <ClInclude Include="..\..\Code\HTT.h">
       <Filter>HTT</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Code\HttCompatibility.h">
+      <Filter>HTT</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

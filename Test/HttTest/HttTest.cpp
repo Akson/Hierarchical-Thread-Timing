@@ -12,43 +12,44 @@ void Function3()
 {
     HTT::TimingBlock tb("F3 block");
     RandSleep(1);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 1");
+    TT.Tick("Sleep 1");
 }
 
 void Function2()
 {
     HTT::TimingBlock tb("F2 block");
     RandSleep(5);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 5");
+    TT.Tick("Sleep 5");
     Function3();
     RandSleep(2);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 2");
+    TT.Tick("Sleep 2");
 }
 
 void Function1()
 {
     HTT::TimingBlock tb("F1 block");
     RandSleep(3);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 3");
+    TT.Tick("Sleep 3");
     Function2();
     RandSleep(7);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 7");
+    TT.Tick("Sleep 7");
     Function3();
     RandSleep(10);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 10");
+    TT.Tick("Sleep 10");
 }
 
 int main(int argc, char* argv[])
 {
-    HTT::ThreadTimer::GetInstance()->Tick("Start");
+    TT.Tick("Start");
     RandSleep(11);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 11");
+    TT.Tick("Sleep 11");
     Function1();
-    HTT::ThreadTimer::GetInstance()->Tick("F1");
+    TT.Tick("F1");
     RandSleep(12);
-    HTT::ThreadTimer::GetInstance()->Tick("Sleep 12");
+    TT.Tick("Sleep 12");
 
-    HTT::ThreadTimer::GetInstance()->Flush(std::cout);
+    for(auto& tick : TT.GetTicksList())
+        std::cout << tick.first << " " << tick.second << std::endl;
 
     return 0;
 }
