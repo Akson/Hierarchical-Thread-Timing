@@ -39,14 +39,14 @@ std::vector<std::pair<double, std::string>> &HTT::ThreadTimer::GetTicksList()
 
 std::string HTT::ThreadTimer::GetTicksListAsJson()
 {
-    std::string jsonStr = "{[";
+    std::string jsonStr = "{\"Ticks\":[";
     for(auto &tick : GetTicksList())
     {
-        jsonStr += "\"";
+        jsonStr += "{\"";
         jsonStr += tick.second;
         jsonStr += "\":";
         jsonStr += std::to_string(tick.first);
-        jsonStr += ",";
+        jsonStr += "},";
     }
     jsonStr.erase(jsonStr.length() - 1);
     jsonStr += "]}";
