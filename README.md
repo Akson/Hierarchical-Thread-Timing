@@ -1,4 +1,4 @@
 Hierarchical-Thread-Timing
 ==========================
 
-A small tool for measuring execution time in hierarchical way.
+A small tool for measuring execution time in a hierarchical way.
