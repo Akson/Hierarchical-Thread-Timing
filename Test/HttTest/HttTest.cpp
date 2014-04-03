@@ -5,7 +5,7 @@
 
 void RandSleep(int ms)
 {
-    std::this_thread::sleep_for(std::chrono::microseconds(1000*ms + std::rand()%700));
+    std::this_thread::sleep_for(std::chrono::microseconds(1000 * ms + std::rand() % 700));
 }
 
 void Function3()
@@ -38,7 +38,7 @@ void Function1()
     TT.Tick("Sleep 10");
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     TT.Tick("Start");
     RandSleep(11);
@@ -48,8 +48,10 @@ int main(int argc, char* argv[])
     RandSleep(12);
     TT.Tick("Sleep 12");
 
-    for(auto& tick : TT.GetTicksList())
+    for(auto &tick : TT.GetTicksList())
         std::cout << tick.first << " " << tick.second << std::endl;
+
+    std::cout << TT.GetTicksListAsJson() << std::endl;
 
     return 0;
 }

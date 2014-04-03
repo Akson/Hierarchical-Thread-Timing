@@ -34,8 +34,9 @@ public:
     void StartBlock(const char *blockName);
     void EndBlock();
     void Tick(const char *eventName);
-    std::vector<std::pair<double, std::string>> &GetTicksList();
     void Restart();
+    std::vector<std::pair<double, std::string>> &GetTicksList();
+    std::string GetTicksListAsJson();
 
 private:
     SYSTEM_HIGH_RES_TIMER::time_point m_StartTime;
